@@ -1,11 +1,25 @@
+/*
+* Smart_I2C_Scanner.ino : scans for connected I2C devices on a variety of Arduino-compatible microcontrollers
+
+* Copyright (C) 2018 Simon D. Levy
+*
+* MIT License
+*/
+
+#if defined(TEENSYDUINO) 
+#include <i2c_t3.h>
+#else
 #include "Wire.h"   
+#endif
 
 void setup()
 {
     Serial.begin(115200);
     delay(1000);
 
-#ifdef STM32L4
+#if defined(TEENSYDUINO)
+    Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+#elif defined(STM32L4)
     Wire.begin(TWI_PINS_20_21); 
 #else
     Wire.begin();
@@ -22,7 +36,7 @@ void loop()
     for(byte address = 1; address < 127; address++ ) 
     {
 
-#ifdef STM32L4
+#if defined(STM32L4)
         byte error = Wire.transfer(address, NULL, 0, NULL, 0);
 #else
         Wire.beginTransmission(address);
