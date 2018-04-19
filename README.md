@@ -1,6 +1,9 @@
-# Smart_I2C_Scanner Scans for I^2C devices on a variety of Arduino-compatible boards
+# Smart_I2C_Scanner
 
-I have tested this sketch on the following boards
+This Arduino sketch allows you to scan for I<sup>2</sup>C devices on a variety of Arduino-compatible microcontroller boards.  On boards that support more than one I<sup>2</sup>C port (Arduino Due; Teensy 3.2, 3.6; Tlera Corp STM32L4 boards), it checks SCD0/SDL0.  (Teensy users needing a more sophisticated scanner should use this 
+<a href="https://github.com/nox771/i2c_t3/tree/master/examples/advanced_scanner">sketch</a>.)
+
+I have tested this sketch on the following boards:
 * Arduino Uno
 * Arduino Mega
 * Arduino Leonard
