@@ -6,7 +6,7 @@ This Arduino sketch allows you to scan for I<sup>2</sup>C devices on a variety o
 I have tested this sketch on the following boards:
 * Arduino Uno
 * Arduino Mega
-* Arduino Leonard
+* Arduino Leonardo
 * Arduino Due
 * Teensy 3.2
 * Teensy 3.6
