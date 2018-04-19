@@ -5,34 +5,35 @@ void setup()
     Serial.begin(115200);
     delay(1000);
 
-    Wire.begin(TWI_PINS_20_21); // set master mode 
-    Wire.setClock(400000);      // I2C frequency at 400 kHz 
+#ifdef STM32L4
+    Wire.begin(TWI_PINS_20_21); 
+#else
+    Wire.begin();
+#endif
+
     delay(1000);
 }
 
 void loop()
 {  
-    // scan for i2c devices
-    byte error, address;
-    int nDevices;
-
     Serial.println("Scanning...");
 
-    nDevices = 0;
-    for(address = 1; address < 127; address++ ) 
+    int nDevices = 0;
+    for(byte address = 1; address < 127; address++ ) 
     {
-        // The i2c_scanner uses the return value of
-        // the Write.endTransmisstion to see if
-        // a device did acknowledge to the address.
-        error = Wire.transfer(address, NULL, 0, NULL, 0);
 
+#ifdef STM32L4
+        byte error = Wire.transfer(address, NULL, 0, NULL, 0);
+#else
+        Wire.beginTransmission(address);
+        byte error = Wire.endTransmission();
+#endif
         if (error == 0)
         {
             Serial.print("I2C device found at address 0x");
             if (address<16) 
                 Serial.print("0");
-            Serial.print(address,HEX);
-            Serial.println("  !");
+            Serial.println(address,HEX);
 
             nDevices++;
         }
