@@ -18,7 +18,7 @@ void setup()
     delay(1000);
 
 #if defined(TEENSYDUINO)
-    Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+    Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_INT, 400000);
 #elif defined(STM32L4)
     Wire.begin(TWI_PINS_20_21); 
 #else
