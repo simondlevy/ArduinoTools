@@ -19,8 +19,8 @@ void setup()
 
 #if defined(TEENSYDUINO)
     Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_INT, 400000);
-#elif defined(STM32L4)
-    Wire.begin(TWI_PINS_20_21); 
+#elif defined(ESP8266)
+    Wire.begin(0,2); // SDA (0), SCL (2) on ESP8266
 #else
     Wire.begin();
 #endif
