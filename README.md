@@ -5,7 +5,7 @@ This Arduino sketch allows you to scan for I<sup>2</sup>C devices on a variety o
 
 I have tested this sketch on the following boards:
 * Arduino Uno, Mega, Leonardo, Due
-* Teensy 3.2, 3.6
+* Teensy 3.2, 3.6, 4.0
 * Tlera Corp STM32L4 Ladybug, Butterfly, Dragonfly
 * Pesky Products SuperFly Hackable ESP8266 Flight Controller
 * Adafruit HUZZAH32 ESP32 Feather
