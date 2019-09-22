@@ -1,6 +1,6 @@
 /*
-* Smart_I2C_Scanner.ino : scans for connected I2C devices on a variety of Arduino-compatible microcontrollers
-
+* Scans for connected I2C devices on a variety of Arduino-compatible microcontrollers
+*
 * Copyright (C) 2018 Simon D. Levy
 *
 * MIT License
