@@ -7,3 +7,4 @@ I have tested this sketch on the following boards:
 * Tlera Corp STM32L4 Ladybug, Butterfly, Dragonfly
 * Pesky Products SuperFly Hackable ESP8266 Flight Controller
 * Adafruit HUZZAH32 ESP32 Feather
+* TinyPICO
