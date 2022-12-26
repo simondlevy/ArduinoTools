@@ -1,4 +1,4 @@
-Some usesful sketches for Arduino-compatible boards:
+Some usesful sketches for Arduino-compatible microcontrollers:
 
 * <b>I2CScanner</b> scans I^2C addresses
 
