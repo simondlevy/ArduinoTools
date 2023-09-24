@@ -1,49 +1,29 @@
-/*
-* Scans for connected I2C devices on a variety of Arduino-compatible microcontrollers
-*
-* Copyright (C) 2018 Simon D. Levy
-*
-* MIT License
-*/
-
-
-#if defined(__MK20DX256__)
-#include <i2c_t3.h>
-#else
-#include "Wire.h"   
-#endif
+#include <Wire.h>   
 
 void setup()
 {
     Serial.begin(115200);
-    delay(1000);
 
-
-#if defined(__MK20DX256__)
-    Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_INT, 400000);
-#elif defined(ESP8266)
-    Wire.begin(0,2); // SDA (0), SCL (2) on ESP8266
-#else
     Wire.begin();
-#endif
+    Wire1.begin();
 
-    delay(1000);
+    delay(100);
 }
 
-void loop()
-{  
-    Serial.println("Scanning...");
+static void scan(TwoWire & wire, const char * name)
+{
+
+    Serial.println("Scanning %s\n", name);
 
     int nDevices = 0;
+
     for(byte address = 1; address < 127; address++ ) 
     {
 
-#if defined(STM32L4)
-        byte error = Wire.transfer(address, NULL, 0, NULL, 0);
-#else
-        Wire.beginTransmission(address);
-        byte error = Wire.endTransmission();
-#endif
+        wire.beginTransmission(address);
+
+        byte error = wire.endTransmission();
+
         if (error == 0)
         {
             Serial.print("I2C device found at address 0x");
@@ -67,4 +47,11 @@ void loop()
         Serial.println("done\n"); 
 
     delay(1000);
+}
+
+void loop()
+{  
+    scan(Wire, "Wire");
+    scan(Wire1, "Wire1");
+
 }
