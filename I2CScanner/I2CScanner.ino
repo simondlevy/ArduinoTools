@@ -13,7 +13,8 @@ void setup()
 static void scan(TwoWire & wire, const char * name)
 {
 
-    Serial.println("Scanning %s\n", name);
+    Serial.print("Scanning ");
+    Serial.print(name);
 
     int nDevices = 0;
 
