@@ -15,6 +15,7 @@ static void scan(TwoWire & wire, const char * name)
 
     Serial.print("Scanning ");
     Serial.print(name);
+    Serial.println (" ...");
 
     int nDevices = 0;
 
