@@ -1,19 +1,14 @@
 SKETCH = I2CScanner
 
-FQBN = STMicroelectronics:stm32:GenF4:pnum=GENERIC_F405RGTX,usb=CDCgen
+BOARD = teensy:avr:teensy40
 
 PORT = /dev/ttyACM0
 
-OBJ = $(PWD)/obj
-DFU = $(OBJ)/$(SKETCH).dfu 
-HEX = $(OBJ)/$(SKETCH).ino.hex
+build: $(SKETCH).ino
+	arduino-cli compile --fqbn $(BOARD) $(SKETCH).ino
 
-# all: $(DFU)
-all: $(HEX)
-
-$(HEX): $(SKETCH).ino
-	arduino-cli compile --fqbn $(FQBN) --build-path $(OBJ) --warnings "all"
-	rm -f *.bin *.elf
+flash:
+	arduino-cli upload -p $(PORT) --fqbn $(BOARD) .
 
 clean:
 	rm -rf obj
