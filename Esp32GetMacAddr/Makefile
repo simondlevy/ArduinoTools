@@ -4,15 +4,19 @@
 
 SKETCH = Esp32GetMacAddr
 
-PORT = /dev/ttyACM0
+PORT = /dev/ttyUSB0
 
-FQBN = esp32:esp32:tinypico
+# FQBN = esp32:esp32:um_tinypico
+FQBN = esp32:esp32:m5stack_atom
 
 build:
 	arduino-cli compile --fqbn $(FQBN) $(SKETCH).ino
 
 upload:
-	arduino-cli upload -p $(PORT) --fqbn esp32:esp32:tinypico .
+	arduino-cli upload -p $(PORT) --fqbn $(FQBN) .
+
+flash:
+	arduino-cli upload -p $(PORT) --fqbn $(FQBN) .
 
 listen:
-	miniterm $(PORT) 115200
+	miniterm.py $(PORT) 115200
