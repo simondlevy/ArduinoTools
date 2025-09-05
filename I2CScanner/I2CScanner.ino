@@ -5,7 +5,7 @@ void setup()
     Serial.begin(115200);
 
     Wire.begin();
-    Wire1.begin();
+    //Wire1.begin();
 
     delay(100);
 }
@@ -54,5 +54,5 @@ static void scan(TwoWire & wire, const char * name)
 void loop()
 {  
     scan(Wire, "Wire");
-    scan(Wire1, "Wire1");
+    //scan(Wire1, "Wire1");
 }

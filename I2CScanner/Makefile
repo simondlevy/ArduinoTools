@@ -1,14 +1,15 @@
 SKETCH = I2CScanner
 
-BOARD = teensy:avr:teensy40
+# FQBN = teensy:avr:teensy40
+FQBN = esp32:esp32:um_tinypico
 
 PORT = /dev/ttyACM0
 
 build: $(SKETCH).ino
-	arduino-cli compile --fqbn $(BOARD) $(SKETCH).ino
+	arduino-cli compile --fqbn $(FQBN) $(SKETCH).ino
 
 flash:
-	arduino-cli upload -p $(PORT) --fqbn $(BOARD) .
+	arduino-cli upload -p $(PORT) --fqbn $(FQBN) .
 
 clean:
 	rm -rf obj
