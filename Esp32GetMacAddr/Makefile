@@ -6,8 +6,8 @@ SKETCH = Esp32GetMacAddr
 
 PORT = /dev/ttyUSB0
 
-# FQBN = esp32:esp32:um_tinypico
-FQBN = esp32:esp32:m5stack_atom
+FQBN = esp32:esp32:um_tinypico
+# FQBN = esp32:esp32:m5stack_atom
 
 build:
 	arduino-cli compile --fqbn $(FQBN) $(SKETCH).ino
