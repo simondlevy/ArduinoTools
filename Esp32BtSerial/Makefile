@@ -1,4 +1,4 @@
-SKETCH = Esp32BtSerial
+SKETCH = $(shell basename "`pwd`")
 
 ifeq ($(OS),Windows_NT)
 PORT = COM3

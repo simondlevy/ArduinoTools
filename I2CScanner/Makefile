@@ -1,8 +1,8 @@
-SKETCH = I2CScanner
+SKETCH = $(shell basename "`pwd`")
 
-#FQBN = teensy:avr:teensy40
+FQBN = teensy:avr:teensy40
 # FQBN = esp32:esp32:um_tinypico
-FQBN = STMicroelectronics:stm32:GenF4:pnum=GENERIC_F405RGTX,usb=CDCgen
+#FQBN = STMicroelectronics:stm32:GenF4:pnum=GENERIC_F405RGTX,usb=CDCgen
 
 PORT = /dev/ttyACM0
 
@@ -14,7 +14,7 @@ build: $(SKETCH).ino
 flash:
 	arduino-cli upload -p $(PORT) --fqbn $(FQBN) .
 
-unbrick: $(BIN)
+dfu: $(BIN)
 	dfu-util -d 0483:5740 -a 0 -s 0x08000000:leave -D $(BIN)
 
 clean:

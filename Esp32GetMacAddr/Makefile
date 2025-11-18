@@ -2,7 +2,7 @@
 #
 # MIT License
 
-SKETCH = Esp32GetMacAddr
+SKETCH = $(shell basename "`pwd`")
 
 PORT = /dev/ttyUSB0
 
