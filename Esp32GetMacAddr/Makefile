@@ -4,7 +4,8 @@
 
 SKETCH = $(shell basename "`pwd`")
 
-PORT = /dev/ttyUSB0
+PORT = /dev/ttyACM0
+# PORT = /dev/ttyUSB0
 
 FQBN = esp32:esp32:um_tinypico
 # FQBN = esp32:esp32:m5stack_atom
@@ -19,4 +20,4 @@ flash:
 	arduino-cli upload -p $(PORT) --fqbn $(FQBN) .
 
 listen:
-	miniterm.py $(PORT) 115200
+	miniterm.py $(PORT) 115200 --exit-char 3 # exit on CTRL-C
