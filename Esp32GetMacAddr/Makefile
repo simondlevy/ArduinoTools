@@ -7,7 +7,8 @@ SKETCH = $(shell basename "`pwd`")
 PORT = /dev/ttyACM0
 # PORT = /dev/ttyUSB0
 
-FQBN = esp32:esp32:um_tinypico
+FQBN = esp32:esp32:XIAO_ESP32C6
+#FQBN = esp32:esp32:um_tinypico
 # FQBN = esp32:esp32:m5stack_atom
 
 build:
