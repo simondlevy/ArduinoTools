@@ -4,21 +4,13 @@
 
 SKETCH = $(shell basename "`pwd`")
 
-# FQBN = esp32:esp32:XIAO_ESP32C6
-FQBN = esp32:esp32:um_tinypico
-# FQBN = esp32:esp32:um_omgs3
-PORT = /dev/ttyACM0
-
-<<<<<<< HEAD
 #FQBN = esp32:esp32:m5stack_atom
 #PORT = /dev/ttyUSB0
-=======
-#FQBN = esp32:esp32:um_tinypico
+
+FQBN = esp32:esp32:um_tinypico
 #FQBN = esp32:esp32:um_omgs3
-FQBN = esp32:esp32:um_tinys3
-#FQBN = esp32:esp32:m5stack_atom
-#FQBN = esp32:esp32:XIAO_ESP32C6
->>>>>>> a88f308eda617fe0fb087621c860b27803f5258b
+#FQBN = esp32:esp32:um_tinys3
+PORT = /dev/ttyACM0
 
 build:
 	arduino-cli compile --fqbn $(FQBN) $(SKETCH).ino

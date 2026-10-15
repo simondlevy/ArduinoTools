@@ -4,7 +4,8 @@ FQBN = teensy:avr:teensy40
 # FQBN = esp32:esp32:um_tinypico
 #FQBN = STMicroelectronics:stm32:GenF4:pnum=GENERIC_F405RGTX,usb=CDCgen
 
-PORT = /dev/ttyACM0
+# PORT = /dev/ttyACM0
+PORT = /dev/teensy40
 
 BIN = build/$(SKETCH).ino.bin
 

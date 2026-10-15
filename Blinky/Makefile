@@ -1,6 +1,6 @@
 SKETCH = $(shell basename "`pwd`")
 
-FQBN = teensy:avr:teensy41
+FQBN = teensy:avr:teensy40
 #FQBN = esp32:esp32:um_tinypico
 #FQBN = STMicroelectronics:stm32:GenF4:pnum=GENERIC_F405RGTX,usb=CDCgen
 

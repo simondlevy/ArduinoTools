@@ -1,4 +1,4 @@
-static const uint8_t kLedPin = LED_BUILTIN;
+static const uint8_t kLedPin = 9; // LED_BUILTIN;
 static const uint32_t kDelayMsec = 250;
 
 void setup()
